@@ -5,7 +5,6 @@ from Pandas import Pandas
 
 
 def main():
-    placar = {}
     while True:
         jogo = Jogo()
         panda = Pandas()
@@ -22,7 +21,7 @@ def main():
             except:
                 print("só numero burro!")
         if escolha == 1:
-            jogo.inicio_jogo(placar=placar)
+            jogo.inicio_jogo()
         elif escolha == 2:
             os.system('cls')
             panda.read()
