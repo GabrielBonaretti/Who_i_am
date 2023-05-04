@@ -8,6 +8,9 @@ from Pandas import Pandas
 
 class Jogo:
     def __init__(self):
+        '''
+
+        '''
         self.dicas = []
         self.dicas_reserva = []
         self.pts = 2500
@@ -15,6 +18,10 @@ class Jogo:
         self.pessoa_sorteada = ''
 
     def adicionando_lista(self):
+        '''
+
+        :return:
+        '''
         pessoas = Pessoas()
         pessoa_sorteada = pessoas.sortear()
 
@@ -35,6 +42,10 @@ class Jogo:
                 self.dicas.append(pessoa_sorteada.dica2)
 
     def inicio_jogo(self):
+        '''
+
+        :return:
+        '''
         os.system('cls')
         nome_usuario = input("Digite o nome do usuario: ")
         os.system('cls')
@@ -76,6 +87,10 @@ class Jogo:
                 break
 
     def dica(self):
+        '''
+
+        :return:
+        '''
         print("Você tem {} dicas".format(len(self.dicas)))
         dica = choice(self.dicas)
         print(dica)
@@ -85,6 +100,10 @@ class Jogo:
         return chute
 
     def acertou(self):
+        '''
+
+        :return:
+        '''
         time_acertou = self.time_init - time()
         pts_perdido = time_acertou * 25
         if pts_perdido > 250:
@@ -96,6 +115,10 @@ class Jogo:
         self.dicas_reserva.clear()
 
     def senha(self):
+        '''
+
+        :return:
+        '''
         self.pts = 8000
         print("Parabéns você acertou, é o {}, você ganhou {} pontos.".format(self.pessoa_sorteada, round(self.pts)))
         for i in self.dicas_reserva:

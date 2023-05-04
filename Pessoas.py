@@ -8,6 +8,10 @@ class Pessoas:
         self.__pessoas = ["clebinho", "bona", "esther", "dona", "vanessa"]
 
     def sortear(self):
+        '''
+
+        :return:
+        '''
         pessoa_sorteada = choice(self.__pessoas)
         if pessoa_sorteada == "clebinho":
             lista_clebinho = ["clebinho",
@@ -54,7 +58,7 @@ class Pessoas:
                              "Mulher",
                              "Usa óculos",
                              "Instrutor",
-                             "Da aula de englis",
+                             "Da aula de english",
                              "Sumida nas aulas para DS6"]
             vanessa = Vanessa(lista=lista_vanessa)
             pessoa_vanessa = vanessa.criar_pessoa()
@@ -63,6 +67,10 @@ class Pessoas:
 
 class Pessoa:
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         self.nome_c = lista[0]
         self.genero_c = lista[1]
         self.oculos_c = lista[2]
@@ -71,6 +79,10 @@ class Pessoa:
         self.dica2_c = lista[5]
 
     def criar_pessoa(self):
+        '''
+
+        :return:
+        '''
         pessoa_objeto = Dicas.criar_pessoa(nome_c=self.nome_c,
                                            genero_c=self.genero_c,
                                            oculos_c=self.oculos_c,
@@ -80,44 +92,88 @@ class Pessoa:
         return pessoa_objeto
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é {}")
 
 
 class Clebinho(Pessoa):
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         super().__init__(lista)
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é o clebinho")
 
 
 class Bona(Pessoa):
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         super().__init__(lista)
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é o bona")
 
 
 class Esther(Pessoa):
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         super().__init__(lista)
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é a esther")
 
 
 class Dona(Pessoa):
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         super().__init__(lista)
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é o doná")
 
 
 class Vanessa(Pessoa):
     def __init__(self, lista):
+        '''
+
+        :param lista:
+        '''
         super().__init__(lista)
 
     def printpessoa(self):
+        '''
+
+        :return:
+        '''
         print("A pessoa é a vanessa")

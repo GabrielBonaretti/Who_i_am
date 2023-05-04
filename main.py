@@ -5,6 +5,10 @@ from Pandas import Pandas
 
 
 def main():
+    '''
+
+    :return:
+    '''
     while True:
         jogo = Jogo()
         panda = Pandas()
@@ -19,7 +23,7 @@ def main():
                 if 0 < escolha < 3:
                     break
             except:
-                print("só numero burro!")
+                print("só numero lula!")
         if escolha == 1:
             jogo.inicio_jogo()
         elif escolha == 2:

@@ -3,12 +3,21 @@ from prettytable import PrettyTable
 
 class Pandas:
     def __init__(self) -> None:
+        '''
+
+        '''
         self.file_name = 'teste.xlsx'
         self.sheet_name = "Planilha1"
         self.placar = {}
 
     def write(self, pts, nome_usuario):
-        self.placar[pts] = nome_usuario
+        '''
+
+        :param pts:
+        :param nome_usuario:
+        :return:
+        '''
+        self.placar[nome_usuario] = pts
 
         df = pd.read_excel(self.file_name)
         
@@ -16,17 +25,17 @@ class Pandas:
         pontos = list(df['pontos'])
 
         for i in range(len(pontos)):
-            self.placar[pontos[i]] = nick_names[i]
+           self.placar[nick_names[i]] = pontos[i]
 
         lista = []
         index = []
-        myKeys = list(self.placar.keys())
-        myKeys.sort(reverse=1)
-        sorted_dict = {i:  self.placar[i] for i in myKeys}
+
+        sorted_dict = sorted(self.placar.items(), key=lambda x:x[1], reverse=1)
+        
         myTable = PrettyTable(["Classificação", "Nick name", "Pontos"])
         for i in range(len(sorted_dict)):
-            myTable.add_row(["{}º".format(i + 1), "{}".format(list(sorted_dict.values())[i]), "{}".format(round(list(sorted_dict.keys())[i]))])
-            lista.append(["{}º".format(i + 1), "{}".format(list(sorted_dict.values())[i]), "{}".format(round(list(sorted_dict.keys())[i]))])
+            myTable.add_row(["{}º".format(i + 1), "{}".format(sorted_dict[i][0]), "{}".format(round(sorted_dict[i][1]))])
+            lista.append(["{}º".format(i + 1), "{}".format(sorted_dict[i][0]), "{}".format(round(sorted_dict[i][1]))])
             index.append(i+1)
 
         df = pd.DataFrame(lista,index=index, columns=['classificacao','nick name', 'pontos']).to_excel('teste.xlsx', sheet_name="Planilha1")
@@ -36,20 +45,23 @@ class Pandas:
         index.clear()
 
     def read(self):
+        '''
+
+        :return:
+        '''
         df = pd.read_excel(self.file_name)
         
         nick_names = list(df['nick name'])
         pontos = list(df['pontos'])
-
+        
         for i in range(len(pontos)):
-            self.placar[pontos[i]] = nick_names[i]
-
-        myKeys = list(self.placar.keys())
-        myKeys.sort(reverse=1)
-        sorted_dict = {i:  self.placar[i] for i in myKeys}
+           self.placar[nick_names[i]] = pontos[i]
+           
+        sorted_dict = sorted(self.placar.items(), key=lambda x:x[1], reverse=1)
+        
         myTable = PrettyTable(["Classificação", "Nick name", "Pontos"])
         for i in range(len(sorted_dict)):
-            myTable.add_row(["{}º".format(i + 1), "{}".format(list(sorted_dict.values())[i]), "{}".format(round(list(sorted_dict.keys())[i]))])
+            myTable.add_row(["{}º".format(i + 1), "{}".format(sorted_dict[i][0]), "{}".format(round(sorted_dict[i][1]))])
         
         print(myTable)
         self.placar.clear()
