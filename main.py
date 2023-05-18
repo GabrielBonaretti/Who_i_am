@@ -6,8 +6,7 @@ from Pandas import Pandas
 
 def main():
     '''
-
-    :return:
+    Lógica de menus de jogo. A escolha 1 inicia o jogo, a escolha 2 mostra todas as classificações e a escolha 3 encerra o loop.
     '''
     while True:
         jogo = Jogo()
@@ -23,7 +22,7 @@ def main():
                 if 0 < escolha < 3:
                     break
             except:
-                print("só numero lula!")
+                print("é só numero doidinho!")
         if escolha == 1:
             jogo.inicio_jogo()
         elif escolha == 2:

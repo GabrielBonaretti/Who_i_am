@@ -9,8 +9,8 @@ class Pessoas:
 
     def sortear(self):
         '''
-
-        :return:
+        Sorteia uma pessoa e cria o objeto, da pessoa com as carectiristicas sendo suas dicas
+        :return: obj pessoa
         '''
         pessoa_sorteada = choice(self.__pessoas)
         if pessoa_sorteada == "clebinho":
@@ -80,7 +80,6 @@ class Pessoa:
 
     def criar_pessoa(self):
         '''
-
         :return:
         '''
         pessoa_objeto = Dicas.criar_pessoa(nome_c=self.nome_c,
@@ -96,7 +95,7 @@ class Pessoa:
 
         :return:
         '''
-        print("A pessoa é {}")
+        print("A pessoa é xxxx")
 
 
 class Clebinho(Pessoa):

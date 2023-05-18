@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 class Pandas:
     def __init__(self) -> None:
         '''
-
+        Cria classe pandas
         '''
         self.file_name = 'teste.xlsx'
         self.sheet_name = "Planilha1"
@@ -12,13 +12,10 @@ class Pandas:
 
     def write(self, pts, nome_usuario):
         '''
-
-        :param pts:
-        :param nome_usuario:
-        :return:
+        Escreve a nova tabela com os novos pontos da pessoa
+        :param pts: entrada de pontos da nova jogada, double
+        :param nome_usuario: entrada de nick da nova jogada, str
         '''
-        self.placar[nome_usuario] = pts
-
         df = pd.read_excel(self.file_name)
         
         nick_names = list(df['nick name'])
@@ -26,6 +23,8 @@ class Pandas:
 
         for i in range(len(pontos)):
            self.placar[nick_names[i]] = pontos[i]
+
+        self.placar[nome_usuario] = pts
 
         lista = []
         index = []
@@ -46,8 +45,7 @@ class Pandas:
 
     def read(self):
         '''
-
-        :return:
+        Ler a tabela do excel e printa no terminal com o pretty table
         '''
         df = pd.read_excel(self.file_name)
         

@@ -9,7 +9,7 @@ from Pandas import Pandas
 class Jogo:
     def __init__(self):
         '''
-
+        Construtor da classe Jogo
         '''
         self.dicas = []
         self.dicas_reserva = []
@@ -19,7 +19,7 @@ class Jogo:
 
     def adicionando_lista(self):
         '''
-
+        Sorteia uma das pessoas e busca a dica das mesmas. Adicionando-as na lista self.dicas
         :return:
         '''
         pessoas = Pessoas()
@@ -43,8 +43,8 @@ class Jogo:
 
     def inicio_jogo(self):
         '''
-
-        :return:
+        Lógica do jogo, com a apresentação das dicas da pessoa sorteada. Juntamente com a declaração do nome do user,
+        tambem pergunta se a pessoa quer registrar sua jogada com a biblioteca panda.
         '''
         os.system('cls')
         nome_usuario = input("Digite o nome do usuario: ")
@@ -88,8 +88,8 @@ class Jogo:
 
     def dica(self):
         '''
-
-        :return:
+        Mostra a dica sorteada e o tanto de dicas restantes.
+        :return: Retorna o chute do usuario da pessoa sorteada
         '''
         print("Você tem {} dicas".format(len(self.dicas)))
         dica = choice(self.dicas)
@@ -101,8 +101,7 @@ class Jogo:
 
     def acertou(self):
         '''
-
-        :return:
+        Se a pessoa acertou, logica de conclusao do jogo, junto com os pontos e também arruma a lista de dicas.
         '''
         time_acertou = self.time_init - time()
         pts_perdido = time_acertou * 25
@@ -116,7 +115,7 @@ class Jogo:
 
     def senha(self):
         '''
-
+        Se a pessoa souber a senha, lógica de conclusão de jogo. Arrumando a lista de dicas alem de lista de dicas reservas.
         :return:
         '''
         self.pts = 8000
